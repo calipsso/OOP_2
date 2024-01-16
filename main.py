@@ -1,24 +1,22 @@
-class Stadium:
-    def __init__(self, name, capacity):
-        self.name = name
-        self.capacity = capacity
+class Book:
+    def __init__(self, title, pages, price):
+        self.titles = title
+        self.pages = pages
+        self.__price = price
 
-    def __len__(self):
-        return self.capacity
+    @property
+    def price(self):
+        return self.__price
 
-    def __add__(self, other):
-        return Stadium(self.name + " " + other.name, self.capacity + other.capacity)
+    @price.setter
+    def price(self, value):
+        if value >= 0:
+            self.__price = value
+        else:
+            raise ValueError("Price is negative")
 
-    def __eq__(self, other):
-        return self.name == other.name and self.capacity == other.capacity
-
-
-stadium1 = Stadium("Etihad Stadium", 11222)
-stadium2 = Stadium("Etihad Stadium", 11222)
-
-print(stadium1)
-print(stadium2)
-if stadium1 == stadium2:
-    print("rovnaky")
-else:
-    print("rozny")
+kniha = Book("Matrix", 450, 10.9)
+print(kniha.price)
+kniha.price = 20
+print(kniha.price)
+kniha.price = -10
