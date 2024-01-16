@@ -1,37 +1,27 @@
-class Zviera:
-    def hlas(self):
-        raise NotImplementedError("Podtrieda musi implementovat tuto podtriedu")
-
-class Pes(Zviera):
-    def hlas(self):
-        return "How"
-    def koncatiny(self):
-        return 5
-class Kohut(Zviera):
-    def hlas(self):
-        return "Kikirik"
-    def koncatiny(self):
-        return 2
-class Macka(Zviera):
-
-    def koncatiny(self):
-        return 5
-def vydaj_zvuk(Zviera):
-    return zviera.hlas()
-
-def koncatiny(Zviera):
-    return zviera.koncatiny()
+class Stadium:
+    def __init__(self, meno, datum_otvorenia, krajina, pocet_sedaciek):
+        self.name = meno
+        self.date = datum_otvorenia
+        self.country = krajina
+        self.seating_capacity = pocet_sedaciek
 
 
-pes = Pes()
-macka = Macka()
-kohut = Kohut()
+ultraford = Stadium("Ultraford", 1985, "Anglicko", 150000)
+rockford = Stadium("Rockford", 1945, "Belgicko", 550000)
+trinidat = Stadium("Trinidat", 1995, "Afrika", 1468000)
 
-for zviera in [pes, macka, kohut]:
-    print(vydaj_zvuk(Zviera))
+stadion = [ultraford, rockford, trinidat]
+najvacia_kapacita = 0
+najvacsi_stadion = None
 
-for zviera in [pes, macka, kohut]:
-    print(koncatiny(Zviera))
+for i in stadion:
+    if i.seating_capacity > najvacia_kapacita:
+        najvacsia_kapacita = i.seating_capacity
+        najvacsi_stadion = i
 
-for zviera in [pes, macka, kohut]:
-    print(zviera.hlas())
+print(najvacsi_stadion.name)
+
+stadion.sort(key=lambda i:i.seating_capacity, reverse=True)
+
+print(stadion[0].name)
+
