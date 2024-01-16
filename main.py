@@ -13,11 +13,9 @@ class Kohut(Zviera):
     def koncatiny(self):
         return 2
 class Macka(Zviera):
-    def hlas(self):
-        return "mnau"
+
     def koncatiny(self):
         return 5
-
 def vydaj_zvuk(Zviera):
     return zviera.hlas()
 
@@ -35,3 +33,5 @@ for zviera in [pes, macka, kohut]:
 for zviera in [pes, macka, kohut]:
     print(koncatiny(Zviera))
 
+for zviera in [pes, macka, kohut]:
+    print(zviera.hlas())
