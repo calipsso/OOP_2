@@ -1,12 +1,37 @@
-class MojaKalkulacka:
-    @staticmethod
-    def sucet(a, b):
-        return a+b
-    @staticmethod
-    def sucin(a, b):
-        return a*b
+class Zviera:
+    def hlas(self):
+        raise NotImplementedError("Podtrieda musi implementovat tuto podtriedu")
 
-print(MojaKalkulacka.sucet(2,6))
-print(MojaKalkulacka.sucin(8,9))
+class Pes(Zviera):
+    def hlas(self):
+        return "How"
+    def koncatiny(self):
+        return 5
+class Kohut(Zviera):
+    def hlas(self):
+        return "Kikirik"
+    def koncatiny(self):
+        return 2
+class Macka(Zviera):
+    def hlas(self):
+        return "mnau"
+    def koncatiny(self):
+        return 5
 
-# pokial nepotrebujem dalej pracovat s datami mozem na rychlost pouzit
+def vydaj_zvuk(Zviera):
+    return zviera.hlas()
+
+def koncatiny(Zviera):
+    return zviera.koncatiny()
+
+
+pes = Pes()
+macka = Macka()
+kohut = Kohut()
+
+for zviera in [pes, macka, kohut]:
+    print(vydaj_zvuk(Zviera))
+
+for zviera in [pes, macka, kohut]:
+    print(koncatiny(Zviera))
+
